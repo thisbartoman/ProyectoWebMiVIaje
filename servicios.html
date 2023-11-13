@@ -137,6 +137,45 @@
             </div>
         </div>
     </section>
+     <section class="tank-pricing-7" id="pricing">
+        <div class="tank-pricing-7_sur py-5">
+            <div class="container py-md-3">
+                <div class="heading text-center mx-auto">
+                    <h3 class="head">Servicio de clima</h3>
+                    <p class="my-3 head">Antes de reservar tu paquete podes chequear el clima! Desde mi destino te proporcionamos la información del clima para que tu estadia sea perfecta!</p>
+                </div>
+
+                <div class="products-4" id="weatherButtons">
+                    <input id="tab1" type="radio" name="tabs" checked onclick="getWeather('Buzios')">
+                    <label class="tabtle" for="tab1">Buzios</label>
+            
+                    <input id="tab2" type="radio" name="tabs" onclick="getWeather('Camboriu')">
+                    <label class="tabtle" for="tab2">Camboriu</label>
+            
+                    <input id="tab3" type="radio" name="tabs" onclick="getWeather('Florianopolis')">
+                    <label class="tabtle" for="tab3">Florianopolis</label>
+            
+                    <input id="tab4" type="radio" name="tabs" onclick="getWeather('RioDeJaneiro')">
+                    <label class="tabtle" for="tab4">Rio de Janeiro</label>
+                </div>
+            
+                <div class="my-3 head text-white" id="weatherData"></div>
+            
+                <script >
+                    const apiKey = '23fc7c2d00afeec29f61dd736749a83b';  
+            
+                    function getWeather(city) {
+                        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+            
+                        fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                const weatherInfo = `Temperatura en ${city}: ${data.main.temp}°C, Condición: ${data.weather[0].description}`;
+                                document.getElementById('weatherData').innerText = weatherInfo;
+                            })
+                            .catch(error => console.error(`Error al obtener datos del clima para ${city}:`, error));
+                    }
+                </script>
 
     <section class="tank-pricing-7" id="pricing">
         <div class="tank-pricing-7_sur py-5">
@@ -262,12 +301,12 @@
     <section class="tank-footer-29-main" id="footer">
         <div class="footer-29 text-center">
             <div class="container">
-                <div class="main-social-footer-29">
-                    <a href="#" class="facebook"><span class="fa fa-facebook"></span></a>
-                    <a href="#" class="twitter"><span class="fa fa-twitter"></span></a>
-                    <a href="#" class="instagram"><span class="fa fa-instagram"></span></a>
-                    <a href="#" class="google-plus"><span class="fa fa-google-plus"></span></a>
-                    <a href="#" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                <div class="main-social-footer-29"> 
+                    <a href="https://www.facebook.com/?locale=es_LA" class="facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="https://twitter.com/" class="twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="https://www.instagram.com/" class="instagram"><span class="fa fa-instagram"></span></a>
+                    <a href="https://www.google.com/?hl=es" class="google-plus"><span class="fa fa-google-plus"></span></a>
+                    <a href="https://www.linkedin.com/home" class="linkedin"><span class="fa fa-linkedin"></span></a>
                 </div>
                 <div class="bottom-copies text-center">
                     <p class="copy-footer-29">2023-2024 reservaciones <a href="#">-Gracias!!!</a></p>
@@ -278,33 +317,36 @@
         <span class="fa fa-angle-up"></span>
         </button>
             <script>
-                window.onscroll = function() {
-                    scrollFunction()
-                };
+    window.onscroll = function() {
+        scrollFunction();
+    };
 
-                function scrollFunction() {
-                    if(document.body.scrollTop > 20 || document.documentElement. scrollTop > 20) {
-                        document.getElementById("movetop").style.display = "block";
-                    }else{
-                        document.getElementById("movetop").style.display = "none";
-                    }
-                }
+    function scrollFunction() {
+        var movetopButton = document.getElementById("movetop");
+        
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            movetopButton.style.display = "block";
+        } else {
+            movetopButton.style.display = "none";
+        }
+    }
 
-                function topFunction () {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }
-            </script>
-    </section>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
-    <script>
-        $(function(){
-            $('.navbar-toggler').click(function(){
-                $('body').toggleClass('noscroll');
-            })
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navbarToggler = document.querySelector('.navbar-toggler');
 
+        navbarToggler.addEventListener('click', function() {
+            document.body.classList.toggle('noscroll');
         });
-    </script>
+    });
+</script>
+     
     
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

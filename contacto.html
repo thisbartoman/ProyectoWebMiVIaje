@@ -149,37 +149,37 @@
         <button onclick="topFunction()" id="movetop" title="Go to top">
         <span class="fa fa-angle-up"></span>
         </button>
-            <script>
-                window.onscroll = function() {
-                    scrollFunction()
-                };
+     <script>
+    window.onscroll = function() {
+        scrollFunction();
+    };
 
-                function scrollFunction() {
-                    if(document.body.scrollTop > 20 || document.documentElement. scrollTop > 20) {
-                        document.getElementById("movetop").style.display = "block";
-                    }else{
-                        document.getElementById("movetop").style.display = "none";
-                    }
-                }
+    function scrollFunction() {
+        var movetopButton = document.getElementById("movetop");
+        
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            movetopButton.style.display = "block";
+        } else {
+            movetopButton.style.display = "none";
+        }
+    }
 
-                function topFunction () {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }
-            </script>
-    </section>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
 
-    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var navbarToggler = document.querySelector('.navbar-toggler');
 
-
-    <script>
-        $(function(){
-            $('.navbar-toggler').click(function(){
-                $('body').toggleClass('noscroll');
-            })
-
+        navbarToggler.addEventListener('click', function() {
+            document.body.classList.toggle('noscroll');
         });
-    </script>
+    });
+</script>
+
 
 
 
